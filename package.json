@@ -11,6 +11,7 @@
     "marked": "^0.3.17",
     "now": "^9.0.1",
     "sander": "^0.6.0",
+    "shx": "^0.3.2",
     "style-loader": "^0.20.1",
     "svelte": "^1.54.0",
     "svelte-loader": "2.3.3",
@@ -23,11 +24,11 @@
     "test": "npm run lint",
     "start": "cross-env NODE_ENV=production node server.js",
     "lint": "markdownlint --config markdownlint.json guide/en/**/*.md",
-    "update_overview": "node scripts/update_overview",
+    "update-guide": "git clone --depth 1 --branch inline-docs git@github.com:rollup/rollup.git temp-rollup &&  shx rm -rf guide/en && shx cp -r temp-rollup/guide/. guide/en && shx rm -rf temp-rollup",
     "clean": "rm -rf client/dist && rm -rf server/dist && rm -rf service-worker/dist && mkdir -p client/dist && mkdir -p server/dist && mkdir -p service-worker/dist",
     "stage": "now",
-    "deploy": "npm run test && now && now alias",
-    "deploy:ci": "npm run test && now --token $NOW_TOKEN && now alias --token $NOW_TOKEN"
+    "deploy": "npm run update-guide && npm run test && now && now alias",
+    "deploy:ci": "npm run update-guide && npm run test && now --token $NOW_TOKEN && now alias --token $NOW_TOKEN"
   },
   "dependencies": {
     "codemirror": "^5.35.0",

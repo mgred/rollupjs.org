@@ -3,3 +3,7 @@ node_modules
 .sapper
 .vscode
 templates/.*
+
+# Needs to be taken from the main rollup repo
+guide/en
+temp-rollup
