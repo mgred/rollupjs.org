@@ -11,7 +11,7 @@ Rollup configuration files are optional, but they are powerful and convenient an
 A config file is an ES6 module that exports a default object with the desired options. Typically, it is called `rollup.config.js` and sits in the root directory of your project.
 
 Also you can use CJS modules syntax for the config file.
- 
+
 ```javascript
 module.exports = {
   input: 'src/main.js',
